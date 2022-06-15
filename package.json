@@ -1,0 +1,24 @@
+{
+  "name": "dicoding_js_dasar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josua-stng/javascript_dasar_dicoding.git"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josua-stng/javascript_dasar_dicoding/issues"
+  },
+  "homepage": "https://github.com/josua-stng/javascript_dasar_dicoding#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
