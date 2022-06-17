@@ -183,3 +183,138 @@ let drink ={
 export {drink};
 
 console.log('test');
+
+// Async Await
+
+let OrderCoffe = (callback)=>{
+  let coffeee =null
+  console.log('Tunggu sebentar');
+  setTimeout(() => {
+      coffeee='Kopi Sudah Jadi';
+      callback(coffeee)
+  }, 3000);
+}
+OrderCoffe(coffeee=>{
+  console.log(coffeee);
+})
+
+Promise
+let executorFunction = (resolve, reject) => {
+  let isCoffeMakerReady = true;
+  if (isCoffeMakerReady) {
+    resolve('Kopi berhasil dibuat');
+  } else {
+    reject('Kopi Gagal dibuat');
+  }
+};
+
+const makeCoffe = () => {
+  return new Promise(executorFunction);
+};
+
+const coffeePromise = makeCoffe();
+console.log(coffeePromise);
+const stock = {
+  coffeeBeans: 250,
+  water: 1000,
+}
+
+const check = () => {
+  return new Promise((resolve, reject) => {
+      if (stock.coffeeBeans >= 16 && stock.water >= 250) {
+          resolve("Stok cukup. Bisa membuat kopi");
+      } else {
+          reject("Stok tidak cukup");
+      }
+  });
+};
+
+const handleSuccess = resolvedValue => {
+  console.log(resolvedValue);
+}
+
+const handleFailure = rejectionReason => {
+  console.log(rejectionReason);
+}
+
+checkStock().then(handleSuccess, handleFailure);
+
+const state = {
+  stock: {
+      coffeeBeans: 250,
+      water: 1000,
+  },
+  isCoffeeMachineBusy: false,
+}
+
+const checkAvailability = () => {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          if (!state.isCoffeeMachineBusy) {
+              resolve("Mesin kopi siap digunakan.");
+          } else {
+              reject("Maaf, mesin sedang sibuk.");
+          }
+      }, 1000);
+  });
+};
+
+const checkStock = () => {
+  return new Promise((resolve, reject) => {
+      state.isCoffeeMachineBusy = true;
+      setTimeout(() => {
+          if (state.stock.coffeeBeans >= 16 && state.stock.water >= 250) {
+              resolve("Stok cukup. Bisa membuat kopi.");
+          } else {
+              reject("Stok tidak cukup!");
+          }
+      }, 1500);
+  });
+};
+
+const brewCoffee = () => {
+  console.log("Membuatkan kopi Anda...")
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          resolve("Kopi sudah siap!")
+      }, 2000);
+  });
+};
+
+function makeEspresso() {
+  checkAvailability()
+      .then((value) => {
+          console.log(value);
+          return checkStock();
+      })
+      .then((value) => {
+          console.log(value)
+          return brewCoffee();
+      })
+      .then(value => {
+          console.log(value);
+          state.isCoffeeMachineBusy = false;
+      })
+      .catch(rejectedReason => {
+          console.log(rejectedReason);
+          state.isCoffeeMachineBusy = false;
+      });
+}
+
+makeEspresso();
+
+function fetchUsername() {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          resolve('JSUser');
+      }, 3000);
+  })
+}
+
+console.log("Fetching username...");
+fetchUsername().then((value) => {
+  console.log(`You are logged in as ${value}`);
+})
+.finally(() => {
+  console.log("Welcome!");
+})
