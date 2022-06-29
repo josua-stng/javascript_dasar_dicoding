@@ -1,11 +1,11 @@
-let item={
-    firstname:'josua',
-    age:20,
-    isMarried:false
+let item = {
+  firstname: 'josua',
+  age: 20,
+  isMarried: false
 }
 
-let obj1= ({firstname,age})=>{
-    console.log(`My name is ${firstname} , and ${age}`);
+let obj1 = ({ firstname, age }) => {
+  console.log(`My name is ${firstname} , and ${age}`);
 }
 
 obj1(item)
@@ -20,12 +20,12 @@ let minimal = (a, b) => {
   }
 };
 
-let power = (a,b)=>{
-    return a**b
+let power = (a, b) => {
+  return a ** b
 }
 
 minimal(3, 3);
-power(3,3)
+power(3, 3)
 
 // Prototype pada OOP Javascript
 function Mail() {
@@ -33,7 +33,7 @@ function Mail() {
 };
 
 Mail.prototype.sendMessage = function n(msg, to) {
-console.log(`you send: ${msg} to ${to} from ${this.from}`);
+  console.log(`you send: ${msg} to ${to} from ${this.from}`);
 };
 
 const mail1 = new Mail();
@@ -42,11 +42,11 @@ mail1.sendMessage('hallo', 'penerima@dicoding.com');
 // Cara 2
 class isMail {
   constructor() {
-      this.from = 'pengirim@dicoding.com';
+    this.from = 'pengirim@dicoding.com';
   }
 
   sendMessage(msg, to) {
-      console.log(`you send: ${msg} to ${to} from ${this.from}`);
+    console.log(`you send: ${msg} to ${to} from ${this.from}`);
   };
 }
 
@@ -54,23 +54,23 @@ const mail2 = new isMail();
 mail2.sendMessage('hallo', 'penerima@dicoding.com');
 
 // Property and Method
-class Main{
-  constructor(){
-    this.from='josuasitanggang51@gmail.com';
-    this.contact=[]
-    this.yourOtherProperty='the values'
+class Main {
+  constructor() {
+    this.from = 'josuasitanggang51@gmail.com';
+    this.contact = []
+    this.yourOtherProperty = 'the values'
 
   }
 
-  messageSend(msg,to){
+  messageSend(msg, to) {
     console.log(`you send ${msg} ${to} from ${this.from}`);
     this.contact.push(to)
   }
 
 }
 
-const NewMail= new Main()
-NewMail.messageSend('hallo' ,'penerima')
+const NewMail = new Main()
+NewMail.messageSend('hallo', 'penerima')
 
 class Animal {
   constructor(name, age, isMammal) {
@@ -113,9 +113,9 @@ const myEagle = new Eagle('Elo', 4);
 myEagle.fly();
 
 // Imperatif Code
-let names = ['josua','nicholas','risky'];
-let take_names=[]
-for (let i = 0 ; i<names.length ; i++){
+let names = ['josua', 'nicholas', 'risky'];
+let take_names = []
+for (let i = 0; i < names.length; i++) {
   take_names.push(`${names[i]}`)
 }
 
@@ -123,15 +123,15 @@ console.log(take_names);
 
 // Deklaratif Code
 
-let names2=['josua','nicholas','risky'];
-let take_names2=names2.map((name)=>`${name}`)
+let names2 = ['josua', 'nicholas', 'risky'];
+let take_names2 = names2.map((name) => `${name}`)
 console.log(take_names2);
 
 // Pure Function
-let phi =3.14;
+let phi = 3.14;
 
-let count_circle = (r)=>{
-  return phi *( r * r)
+let count_circle = (r) => {
+  return phi * (r * r)
 }
 
 console.log(count_circle(4));
@@ -141,10 +141,10 @@ phi = 5;
 console.log(count_circle(4));
 
 Recursif
-let countdown = (start)=>{
+let countdown = (start) => {
   console.log(start);
-  if (start > 0 ){
-    countdown(start-1)
+  if (start > 0) {
+    countdown(start - 1)
   }
 }
 
@@ -174,27 +174,27 @@ const greatAuthors = books
 
 console.log(greatAuthors);
 
-let drink ={
-  coffee:'torabika',
-  water:'aqua',
-  energy:'extra joss'
+let drink = {
+  coffee: 'torabika',
+  water: 'aqua',
+  energy: 'extra joss'
 }
 
-export {drink};
+export { drink };
 
 console.log('test');
 
 // Async Await
 
-let OrderCoffe = (callback)=>{
-  let coffeee =null
+let OrderCoffe = (callback) => {
+  let coffeee = null
   console.log('Tunggu sebentar');
   setTimeout(() => {
-      coffeee='Kopi Sudah Jadi';
-      callback(coffeee)
+    coffeee = 'Kopi Sudah Jadi';
+    callback(coffeee)
   }, 3000);
 }
-OrderCoffe(coffeee=>{
+OrderCoffe(coffeee => {
   console.log(coffeee);
 })
 
@@ -221,11 +221,11 @@ const stock = {
 
 const check = () => {
   return new Promise((resolve, reject) => {
-      if (stock.coffeeBeans >= 16 && stock.water >= 250) {
-          resolve("Stok cukup. Bisa membuat kopi");
-      } else {
-          reject("Stok tidak cukup");
-      }
+    if (stock.coffeeBeans >= 16 && stock.water >= 250) {
+      resolve("Stok cukup. Bisa membuat kopi");
+    } else {
+      reject("Stok tidak cukup");
+    }
   });
 };
 
@@ -241,73 +241,73 @@ checkStock().then(handleSuccess, handleFailure);
 
 const state = {
   stock: {
-      coffeeBeans: 250,
-      water: 1000,
+    coffeeBeans: 250,
+    water: 1000,
   },
   isCoffeeMachineBusy: false,
 }
 
 const checkAvailability = () => {
   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-          if (!state.isCoffeeMachineBusy) {
-              resolve("Mesin kopi siap digunakan.");
-          } else {
-              reject("Maaf, mesin sedang sibuk.");
-          }
-      }, 1000);
+    setTimeout(() => {
+      if (!state.isCoffeeMachineBusy) {
+        resolve("Mesin kopi siap digunakan.");
+      } else {
+        reject("Maaf, mesin sedang sibuk.");
+      }
+    }, 1000);
   });
 };
 
 const checkStock = () => {
   return new Promise((resolve, reject) => {
-      state.isCoffeeMachineBusy = true;
-      setTimeout(() => {
-          if (state.stock.coffeeBeans >= 16 && state.stock.water >= 250) {
-              resolve("Stok cukup. Bisa membuat kopi.");
-          } else {
-              reject("Stok tidak cukup!");
-          }
-      }, 1500);
+    state.isCoffeeMachineBusy = true;
+    setTimeout(() => {
+      if (state.stock.coffeeBeans >= 16 && state.stock.water >= 250) {
+        resolve("Stok cukup. Bisa membuat kopi.");
+      } else {
+        reject("Stok tidak cukup!");
+      }
+    }, 1500);
   });
 };
 
 const brewCoffee = () => {
   console.log("Membuatkan kopi Anda...")
   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-          resolve("Kopi sudah siap!")
-      }, 2000);
+    setTimeout(() => {
+      resolve("Kopi sudah siap!")
+    }, 2000);
   });
 };
 
 function makeEspresso() {
   checkAvailability()
-      .then((value) => {
-          console.log(value);
-          return checkStock();
-      })
-      .then((value) => {
-          console.log(value)
-          return brewCoffee();
-      })
-      .then(value => {
-          console.log(value);
-          state.isCoffeeMachineBusy = false;
-      })
-      .catch(rejectedReason => {
-          console.log(rejectedReason);
-          state.isCoffeeMachineBusy = false;
-      });
+    .then((value) => {
+      console.log(value);
+      return checkStock();
+    })
+    .then((value) => {
+      console.log(value)
+      return brewCoffee();
+    })
+    .then(value => {
+      console.log(value);
+      state.isCoffeeMachineBusy = false;
+    })
+    .catch(rejectedReason => {
+      console.log(rejectedReason);
+      state.isCoffeeMachineBusy = false;
+    });
 }
 
 makeEspresso();
 
 function fetchUsername() {
   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-          resolve('JSUser');
-      }, 3000);
+    setTimeout(() => {
+      resolve('JSUser');
+    }, 3000);
   })
 }
 
@@ -315,43 +315,44 @@ console.log("Fetching username...");
 fetchUsername().then((value) => {
   console.log(`You are logged in as ${value}`);
 })
-.finally(() => {
-  console.log("Welcome!");
-})
+  .finally(() => {
+    console.log("Welcome!");
+  })
 
 
 // Penanganan Error
 class ValidationError extends Error {
   constructor(message) {
-      super(message);
-      this.name = "ValidationError";
+    super(message);
+    this.name = "ValidationError";
   }
 }
 
 const validateNumberInput = (a, b, c) => {
   if (typeof a != "number") {
-      throw new ValidationError("Argumen pertama harus number");
+    throw new ValidationError("Argumen pertama harus number");
   } else if (typeof b != "number") {
-      throw new ValidationError("Argumen kedua harus number");
+    throw new ValidationError("Argumen kedua harus number");
   } else if (typeof c != "number") {
-      throw new ValidationError("Argumen ketiga harus number");
+    throw new ValidationError("Argumen ketiga harus number");
   }
 }
 
 const detectTriangle = (a, b, c) => {
   try {
-      validateNumberInput(a, b, c);
+    validateNumberInput(a, b, c);
   } catch (error) {
-      return `${error.message}`;
+    return `${error.message}`;
   }
 
   if (a === b && b === c) {
-      return 'Segitiga sama sisi';
+    return 'Segitiga sama sisi';
   }
 
   if (a === b || a === c || b === c) {
-      return 'Segitiga sama kaki';
+    return 'Segitiga sama kaki';
   }
+
 
   return 'Segitiga sembarang';
 };
