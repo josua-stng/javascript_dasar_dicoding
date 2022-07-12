@@ -13,3 +13,8 @@ const customEventHandler = (ev)=>{
     const caption = document.querySelector('#caption');
     caption.innerText='Anda telah membangkitkan custom event'
 }
+
+const take_context = ()=>{
+    let content = document.querySelector('.context');
+    content.innerText= 'Anda telah membangkitkan custom event'
+}
